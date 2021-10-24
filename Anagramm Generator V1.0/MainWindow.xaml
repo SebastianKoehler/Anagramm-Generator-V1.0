@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Anagramm_Generator_V1._0"
         mc:Ignorable="d"
         Title="Anagramm Generator Ver. 1.0" 
         Height="600" 
@@ -14,13 +13,22 @@
         WindowState="Normal"
         WindowStyle="ThreeDBorderWindow"
         Icon="C:\Users\Sebastian\source\repos\Anagramm Generator V1.0\Anagramm Generator V1.0\Icon\Hellgate-logo.ico">
+    <!-- Konfiguration der Fenster-Elemente und Funktionen
+            Titel des Fensters bzw. der Applikation sowie des Icons
+            HöhexBreite = 600x450
+            Anzeige in der Taskleiste beim minimieren des Fensters = aktiviert
+            Startposition des Fensters = in der Mitte des Bildschirms
+            Wiederherstellung der Größe des Fensters = kann nur minimiert werden
+            Fensterstatus = normal
+            Fenster Style = Anzeige der Menüleiste bzw. der oberen Leiste
+            -->
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black" Offset="0"/>
             <GradientStop Color="#FFD41E1E" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
-
+    <!-- Konfiguration des Grid-Layouts -->
     <Grid ShowGridLines="False" >
         <!-- Spalten Definition -->
         <Grid.ColumnDefinitions>
@@ -43,7 +51,7 @@
             <RowDefinition Height="200"></RowDefinition>
             <!-- TextBox Eingabe String vom User -->
             <RowDefinition Height="50"></RowDefinition>
-            <!-- 2x Button mit Create & Reset -->
+            <!-- 3x Button mit Create, Save & Reset -->
             <RowDefinition Height="50"></RowDefinition>
             <!-- Ausgabe TextBoxen 5x Anagramm String -->
             <RowDefinition Height="200"></RowDefinition>
@@ -51,6 +59,7 @@
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
         <!-- AnzeigeFenster Informationen -->
+        <!-- informiert den Nutzer über die Verwendung der App sowie deren Funktionen -->
         <TextBlock 
             x:Name="AnzeigeTextBoxInformationen" 
             Background="White" 
@@ -65,6 +74,8 @@
             Text="Hi,&#10; Füge dein Wort ein, &#10;klicke auf Create &#10;um 5 Anagramme zu erzeugen &#10;und zum wiederholen auf Reset.&#10;&#10; Viel Spaß." >
         </TextBlock>
         <!-- Eingabefeld für String durch User -->
+        <!-- Der Nutzer kann hier seine Eingabe tätigen
+                Einzelne Wörter, mehrere Wörter, mit Sonderzeichen, Umlauten und Zahlen-->
         <TextBox 
             x:Name="EingabefeldUser" 
             TextChanged="EingabefeldUser_TextChanged" 
@@ -81,6 +92,8 @@
             Grid.Row="2">
         </TextBox>
         <!-- Linker Button Create -->
+        <!-- Create-Button welcher die Eingabe des Nutzers entgegen nimmt und den Algorithmus startet
+                daraufhin werden die erzeugten Anagramme 1-5 in den Ausgabefeldern ausgegeben -->
         <Button 
             x:Name="ButtonCreate" 
             IsEnabled="False" 
@@ -95,6 +108,8 @@
             Grid.Column="1">
         </Button>
         <!-- Rechter Button Reset -->
+        <!-- Reset-Button welcher bei Betätigung den Inhalt des 
+                Eingabefeldes sowie der Ausgabefelder zurücksetzt und leert -->
         <Button 
             x:Name="ButtonReset" 
             IsEnabled="False" 
@@ -108,7 +123,7 @@
             Grid.Row="3" 
             Grid.Column="3">
         </Button>
-        <!-- 1. Anzeigefenster Anagramm 1 -->
+        <!-- 1. Anzeigefenster Ausgabe von Anagramm 1 -->
         <TextBlock 
             x:Name="AnzeigeTextBox1" 
             Text="" 
@@ -120,7 +135,7 @@
             Grid.Column="1" 
             Grid.ColumnSpan="3" >
         </TextBlock>
-        <!-- 2. Anzeigefenster Anagramm 2 -->
+        <!-- 2. Anzeigefenster Ausgabe von Anagramm 2 -->
         <TextBlock 
             x:Name="AnzeigeTextBox2" 
             Text="" 
@@ -132,7 +147,7 @@
             Grid.Column="1" 
             Grid.ColumnSpan="3" >
         </TextBlock>
-        <!-- 3. Anzeigefenster Anagramm 3 -->
+        <!-- 3. Anzeigefenster Ausgabe von Anagramm 3 -->
         <TextBlock 
             x:Name="AnzeigeTextBox3" 
             Text="" 
@@ -144,7 +159,7 @@
             Grid.Column="1" 
             Grid.ColumnSpan="3" >
         </TextBlock>
-        <!-- 4. Anzeigefenster Anagramm 4 -->
+        <!-- 4. Anzeigefenster Ausgabe von Anagramm 4 -->
         <TextBlock 
             x:Name="AnzeigeTextBox4" 
             Text="" 
@@ -156,7 +171,7 @@
             Grid.Column="1" 
             Grid.ColumnSpan="3" >
         </TextBlock>
-        <!-- 5. Anzeigefenster Anagramm 5 -->
+        <!-- 5. Anzeigefenster Ausgabe von Anagramm 5 -->
         <TextBlock 
             x:Name="AnzeigeTextBox5" 
             Text="" 
